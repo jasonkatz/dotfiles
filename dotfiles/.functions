@@ -1,0 +1,14 @@
+echo "~/.functions has run"
+
+cd() {
+    builtin cd "$@"
+    count=$(ls | wc -l);
+    if [ $count -lt 100 ]
+    then
+        ls --color=auto;
+    fi
+}
+
+start() {
+    xterm -T "$1" -e ~/startup.sh &
+}

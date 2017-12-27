@@ -1,0 +1,50 @@
+echo "~/.aliases has run"
+
+# ls aliases
+alias ls="ls --color=auto"
+alias l="ls"
+alias la="l -a"
+alias ll="l -lh"
+alias lla="l -lha"
+
+# clear aliases
+alias c="clear"
+alias cl="clear; ll"
+alias cla="clear; la"
+alias clla="clear; lla"
+
+alias rm="rm -i"
+
+# git aliases
+alias gst="git status"
+alias ga="git add"
+alias gcm="git commit"
+alias gpl="git pull"
+alias gps="git push"
+alias glg="git log"
+alias gsh="git show"
+alias gbl="git blame"
+alias gbr="git branch"
+alias gco="git checkout"
+alias gmr="git merge"
+alias gd="git diff"
+
+# tmux aliases
+alias txl="tmux ls"
+alias txn="tmux new -s"
+alias txa="tmux attach -t"
+alias txk="tmux kill-session -t"
+
+# xterm alias
+alias new="xterm &"
+
+# Apache aliases
+alias astop="sudo systemctl stop apache2"
+alias astart="sudo systemctl start apache2"
+alias arestart="sudo systemctl restart apache2"
+alias areload="sudo systemctl reload apache2"
+
+# Mongodb aliases
+alias mstop="sudo service mongodb stop"
+alias mstart="sudo service mongodb start"
+alias mrestart="sudo service mongodb restart"
