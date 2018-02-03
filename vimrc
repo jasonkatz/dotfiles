@@ -20,6 +20,10 @@ nmap \p :set paste!<CR>
 " Move up/down lines on the screen rather than in the file
 nmap j gj
 nmap k gk
+nmap J <C-e>
+nmap K <C-y>
+nmap T zt
+nmap B zb
 
 " Search options
 set incsearch
