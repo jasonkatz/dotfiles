@@ -1,0 +1,45 @@
+echo "functions has run"
+
+cd() {
+    builtin cd "$@"
+    count=$(ls | wc -l);
+    if [ $count -lt 100 ]
+    then
+        ls;
+    fi
+}
+
+load_dotfiles() {
+    for DOTFILE in `find ~ -maxdepth 1 -type l -name "*.tkd"`
+    do
+        [ -f "$DOTFILE" ] && source "$DOTFILE"
+    done
+}
+
+reload() {
+    bash ~/toolkit/uninstall.sh
+    bash ~/toolkit/install.sh
+
+    load_dotfiles;
+}
+
+start_agent() {
+    echo "Initializing new SSH agent..."
+    SSH_ENV="$HOME/.ssh/environment"
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+    echo succeeded
+    chmod 600 "${SSH_ENV}"
+    . "${SSH_ENV}" > /dev/null
+    /usr/bin/ssh-add
+}
+
+startup() {
+    if [ -f "${SSH_ENV}" ]; then
+        . "${SSH_ENV}" > /dev/null
+        ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+            start_agent;
+        }
+    else
+        start_agent;
+    fi
+}

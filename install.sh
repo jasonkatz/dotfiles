@@ -17,7 +17,7 @@ for DOTFILE in `find $(pwd)/dotfiles -type f`
 do
     echo "Creating symbolic link for ${DOTFILE}"
     FILENAME=$(basename "$DOTFILE")
-    ln -s "$DOTFILE" ~/"$FILENAME.tkd"
+    ln -s "$DOTFILE" ~/."$FILENAME.tkd"
 done
 
 echo "Toolkit successfully installed."

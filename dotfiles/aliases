@@ -1,4 +1,7 @@
-echo "~/.aliases has run"
+echo "aliases has run"
+
+# Edit this file
+alias config="vim ~/toolkit"
 
 # ls aliases
 alias ls="ls --color=auto"
@@ -10,26 +13,29 @@ alias lla="l -lha"
 # clear aliases
 alias c="clear"
 alias cl="clear; ll"
-alias cla="clear; la"
-alias clla="clear; lla"
+alias cla="clear; lla"
 
 alias rm="rm -i"
 
 # git aliases
-alias gst="git status"
+alias gst="git status -sb"
 alias ga="git add"
 alias gcm="git commit"
 alias gpl="git pull"
 alias gps="git push"
-alias glg="git log"
+alias glg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gsh="git show"
+alias gshn="git show --name-only"
 alias gbl="git blame"
 alias gbr="git branch"
 alias gco="git checkout"
 alias gmr="git merge"
 alias gd="git diff"
+alias grb="git rebase"
+alias gcp="git cherry-pick"
 
 # tmux aliases
+alias tmux="tmux -2"
 alias txl="tmux ls"
 alias txn="tmux new -s"
 alias txa="tmux attach -t"

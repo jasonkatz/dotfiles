@@ -20,6 +20,10 @@ nmap \p :set paste!<CR>
 " Move up/down lines on the screen rather than in the file
 nmap j gj
 nmap k gk
+nmap J <C-e>
+nmap K <C-y>
+nmap B zb
+nmap T zt
 
 " Search options
 set incsearch
@@ -31,6 +35,8 @@ nmap \q :nohlsearch<CR>
 " Switch between buffered files quickly
 nmap <C-n> :bnext<CR>
 nmap <C-p> :bprev<CR>
+nmap <C-k> :e %<.cpp<CR>
+nmap <C-h> :e %<.h<CR>
 
 if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
