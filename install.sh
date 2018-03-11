@@ -1,5 +1,9 @@
 cd ~/toolkit
 
+echo "Installing input configuration file..."
+INPUTRC=`find $(pwd) -type f -name "inputrc"`
+ln -s "$INPUTRC" ~/.inputrc
+
 echo "Installing Xresources file..."
 XRESOURCES=`find $(pwd) -type f -name "Xresources"`
 ln -s "$XRESOURCES" ~/.Xresources
