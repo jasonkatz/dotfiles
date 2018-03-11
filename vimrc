@@ -45,6 +45,44 @@ endif
 " Set syntax for ypp files
 autocmd BufNewFile,BufRead *.ypp set syntax=yacc
 
+" Automatically generate code skeleton
+autocmd BufNewFile *.cpp exec ":call CppCodeSkeleton()"
+autocmd BufNewFile *.h exec ":call HeaderCodeSkeleton()"
+
+function CppCodeSkeleton()
+    call setline(1,             "/************************************************")
+    call append(line(".")    ,  "***File name: ".expand("%:t"))
+    call append(line(".") + 1,  "***Author: Jason Katz (jkatz94@gmail.com)")
+    call append(line(".") + 2,  "***Create time: ".strftime("%c"))
+    call append(line(".") + 3,  "*************************************************/")
+    call append(line(".") + 4,  "")
+    call append(line(".") + 5,  "namespace package {")
+    call append(line(".") + 6,  "")
+    call append(line(".") + 7,  "")
+    call append(line(".") + 8,  "")
+    call append(line(".") + 9,  "}  // close package namespace")
+endfunction
+
+function HeaderCodeSkeleton()
+    call setline(1,             "/************************************************")
+    call append(line(".")    ,  "***File name: ".expand("%:t"))
+    call append(line(".") + 1,  "***Author: Jason Katz (jkatz94@gmail.com)")
+    call append(line(".") + 2,  "***Create time: ".strftime("%c"))
+    call append(line(".") + 3,  "*************************************************/")
+    call append(line(".") + 4,  "")
+    let IncludeGuard = "INCLUDED_".toupper(expand("%:t:r"))
+    call append(line(".") + 5,  "#ifndef ".IncludeGuard)
+    call append(line(".") + 6,  "#define ".IncludeGuard)
+    call append(line(".") + 7,  "")
+    call append(line(".") + 8,  "namespace package {")
+    call append(line(".") + 9,  "")
+    call append(line(".") + 10, "")
+    call append(line(".") + 11, "")
+    call append(line(".") + 12, "}  // close package namespace")
+    call append(line(".") + 13, "")
+    call append(line(".") + 14, "#endif")
+endfunction
+
 " For git commits, wrap at 72 characters
 au FileType gitcommit set tw=72
 
