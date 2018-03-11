@@ -1,4 +1,4 @@
-echo "~/.prompt has run"
+echo "prompt has run"
 
 # Normal Colors
 Black='\e[0;30m'        # Black

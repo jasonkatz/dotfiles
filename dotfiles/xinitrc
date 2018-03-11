@@ -1,4 +1,4 @@
-echo "~/.xinitrc has run"
+echo "xinitrc has run"
 
 # Append the PATH variable to make sure the X commands are found
 if echo ":${PATH}:" | grep -v ":/usr/bin/X11:" > /dev/null
