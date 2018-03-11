@@ -42,6 +42,9 @@ if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+" Set syntax for ypp files
+autocmd BufNewFile,BufRead *.ypp set syntax=yacc
+
 " For git commits, wrap at 72 characters
 au FileType gitcommit set tw=72
 

@@ -1,5 +1,5 @@
 XTerm*faceName: Bitstream Vera Serif Mono
-XTerm*faceSize: 12
+XTerm*faceSize: 14
 XTerm.vt100.geometry: 80x25
 XTerm*saveLines: 16384
 XTerm*loginShell: true
