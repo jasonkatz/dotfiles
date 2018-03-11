@@ -1,3 +1,4 @@
-echo "~/.exports has run"
+echo "exports has run"
 
+export DISPLAY=:0.0
 export TERM=xterm-256color

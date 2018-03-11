@@ -37,7 +37,7 @@
 #     When set to "1", do not include "DWIM" suggestions in git-checkout
 #     completion (e.g., completing "foo" when "origin/foo" exists).
 
-echo "~/.git-completion has run"
+echo "git-completion has run"
 
 case "$COMP_WORDBREAKS" in
 *:*) : great ;;
