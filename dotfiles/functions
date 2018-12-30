@@ -9,18 +9,28 @@ cd() {
     fi
 }
 
-load_dotfiles() {
-    for DOTFILE in `find ~ -maxdepth 1 -type l -name "*.tkd"`
-    do
-        [ -f "$DOTFILE" ] && source "$DOTFILE"
-    done
+txdev() {
+    tmux start-server
+    tmux new-session -d -s $1
+    tmux split-window -h -c '#{pane_current_path}'
+    tmux rename-window 'edit'
+    tmux new-window -c '#{pane_current_path}'
+    tmux split-window -h -c '#{pane_current_path}'
+    tmux rename-window 'build'
+    tmux new-window -c '#{pane_current_path}'
+    tmux split-window -h -c '#{pane_current_path}'
+    tmux rename-window 'git'
+    tmux select-window -t 'git'
+    tmux attach-session -t $1
 }
 
-reload() {
+buffer() {
+    cat $1 > ~/public_html/text
+}
+
+reinstall() {
     bash ~/toolkit/uninstall.sh
     bash ~/toolkit/install.sh
-
-    load_dotfiles;
 }
 
 start_agent() {
@@ -42,4 +52,6 @@ startup() {
     else
         start_agent;
     fi
+
+    stty -ixon
 }
