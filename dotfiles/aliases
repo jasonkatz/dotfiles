@@ -56,6 +56,12 @@ alias astart="sudo systemctl start apache2"
 alias arestart="sudo systemctl restart apache2"
 alias areload="sudo systemctl reload apache2"
 
+# nginx aliases
+alias nstop="sudo service nginx stop"
+alias nstart="sudo service nginx start"
+alias nrestart="sudo service nginx restart"
+alias nreload="sudo service nginx reload"
+
 # Mongodb aliases
 alias mstop="sudo service mongodb stop"
 alias mstart="sudo service mongodb start"
