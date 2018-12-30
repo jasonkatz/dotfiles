@@ -3,7 +3,7 @@ OLDPATH=$PWD
 cd ~/toolkit > /dev/null 2>&1
 
 printf "Removing all toolkit files...\n"
-for TKFILE in `find ~ -maxdepth 1 -lname "$(pwd)/*"`
+for TKFILE in `find ~ -maxdepth 3 -lname "$(pwd)/*"`
 do
     rm -f "$TKFILE"
     printf "Removed $TKFILE\n"

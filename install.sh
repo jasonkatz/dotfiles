@@ -42,6 +42,11 @@ printf "Installing vim configuration file...\n"
 VIMRC=`find $(pwd) -type f -name "vimrc"`
 ln -s "$VIMRC" ~/.vimrc
 
+printf "Installing vim color scheme file...\n"
+VIMRC=`find $(pwd) -type f -name "monokai.vim"`
+mkdir -p .vim/colors
+ln -s "$VIMRC" ~/.vim/colors/monokai.vim
+
 printf "\nInstalling dotfiles...\n"
 for DOTFILE in `find $(pwd)/dotfiles -type f`
 do
