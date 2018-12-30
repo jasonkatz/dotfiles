@@ -44,7 +44,7 @@ ln -s "$VIMRC" ~/.vimrc
 
 printf "Installing vim color scheme file...\n"
 VIMRC=`find $(pwd) -type f -name "monokai.vim"`
-mkdir -p .vim/colors
+mkdir -p ~/.vim/colors
 ln -s "$VIMRC" ~/.vim/colors/monokai.vim
 
 printf "\nInstalling dotfiles...\n"
