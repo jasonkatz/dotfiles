@@ -3,6 +3,9 @@ echo "aliases has run"
 # Edit toolkit
 alias config="vim ~/toolkit"
 
+# root
+alias root="sudo -i"
+
 # ls aliases
 alias ls="ls --color=auto"
 alias l="ls"
