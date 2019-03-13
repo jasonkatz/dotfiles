@@ -71,8 +71,8 @@ git_color() {
 }
 
 PS1="\n\[${NC}\]["
-PS1+="\[${Cyan}\]\h "
 PS1+="\[${Yellow}\]\t "
+PS1+="\[${Cyan}\]\h "
 PS1+="\[${Purple}\]\W"
 PS1+="\[\$(git_color)\]\$(git_branch)"
 PS1+="\[${NC}\]] \$ \[${Blue}\]"
