@@ -38,6 +38,9 @@ nmap <C-p> :bprev<CR>
 nmap <C-k> :e %<.cpp<CR>
 nmap <C-h> :e %<.h<CR>
 
+" Remap escape key to jk
+inoremap jk <esc>
+
 if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
