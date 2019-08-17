@@ -73,3 +73,6 @@ alias nreload="sudo nginx -s reload"
 alias mstop="sudo service mongodb stop"
 alias mstart="sudo service mongodb start"
 alias mrestart="sudo service mongodb restart"
+
+# Python aliases
+alias venv="source venv/bin/activate"
