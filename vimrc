@@ -9,10 +9,34 @@ set autoindent
 set shiftwidth=4    " This is the level of autoindent, adjust to taste
 set ruler
 set number
-set backspace=indent,eol,start
+set backspace=2
 set mouse=a
 set cursorline
 set autochdir
+set laststatus=2
+set numberwidth=5
+
+"
+" From Craig's .vimrc
+"
+set wildmenu
+set so=7
+
+let mapleader = ","
+let g:mapleader = ","
+
+nmap <leader>w :w<CR>
+
+inoremap lkj <ESC>:w<CR>
+
+set lazyredraw
+
+set showmatch
+set mat=2
+
+"
+" End of Craig's stuff
+"
 
 nmap \l :setlocal number!<CR>
 nmap \p :set paste!<CR>
@@ -32,21 +56,26 @@ set smartcase
 set hlsearch
 nmap \q :nohlsearch<CR>
 
+vnoremap <C-c> "*y
+
 " Switch between buffered files quickly
 nmap <C-n> :bnext<CR>
 nmap <C-p> :bprev<CR>
 nmap <C-k> :e %<.cpp<CR>
 nmap <C-h> :e %<.h<CR>
 
-" Remap escape key to jk
-inoremap jk <esc>
-inoremap JK <esc>
-inoremap Jk <esc>
-inoremap jK <esc>
+inoremap kj <ESC>
+inoremap Kj <ESC>
+inoremap kJ <ESC>
+inoremap KJ <ESC>
 
 if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
+au FileType gitcommit set tw=72
+
+colorscheme monokai
 
 " Set syntax for ypp files
 autocmd BufNewFile,BufRead *.ypp set syntax=yacc
@@ -88,11 +117,6 @@ function HeaderCodeSkeleton()
     call append(line(".") + 13, "")
     call append(line(".") + 14, "#endif")
 endfunction
-
-" For git commits, wrap at 72 characters
-au FileType gitcommit set tw=72
-
-colorscheme monokai
 
 if &term =~ '256color'
     " disable Background Color Erase (BCE) so that color schemes
