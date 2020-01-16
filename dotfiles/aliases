@@ -24,6 +24,8 @@ alias rm="rm -i"
 
 alias usage="du -sh"
 
+alias cml="vim CMakeLists.txt"
+
 # git aliases
 alias gst="git status -sb"
 alias ga="git add"
