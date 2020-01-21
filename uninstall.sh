@@ -11,10 +11,7 @@ done
 
 printf "\n"
 
-PROFILE=~/.bash_profile
-if [ ! -f $PROFILE ]; then
-    PROFILE=~/.profile
-fi
+PROFILE=~/.profile
 
 START_TAG="TOOLKIT SETUP START"
 END_TAG="TOOLKIT SETUP END"

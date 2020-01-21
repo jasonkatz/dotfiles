@@ -1,10 +1,7 @@
 add_sourcing() {
     printf "\n"
 
-    local PROFILE=~/.bash_profile
-    if [ ! -f $PROFILE ]; then
-        PROFILE=~/.profile
-    fi
+    local PROFILE=~/.profile
 
     local START_TAG="TOOLKIT SETUP START"
     local END_TAG="TOOLKIT SETUP END"
