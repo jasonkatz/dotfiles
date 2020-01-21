@@ -13,23 +13,23 @@ modify_profile() {
         printf "startup\n" >> $PROFILE
         printf "# $END_TAG\n" >> $PROFILE
 
-        printf "Added toolkit setup to $PROFILE\n"
+        printf "🏠 Added toolkit setup to $PROFILE\n"
     else
-        printf "Cannot add toolkit setup to $PROFILE; start and/or end tag already exist.\n"
+        printf "🚫 Cannot add toolkit setup to $PROFILE; start and/or end tag already exist.\n"
     fi
 }
 
-printf "Installing toolkit...\n\n"
+printf "🛠  Installing toolkit...\n\n"
 
 OLDPATH=$PWD
 
-printf "Adding links...\n"
+printf "🔗 Adding links...\n"
 
 cd ~/toolkit/links > /dev/null 2>&1
 
 for TKFILE in `ls -A`
 do
-    printf "Installing $TKFILE...\n"
+    printf "🔧 Installing $TKFILE...\n"
     ln -s "$(pwd)/$TKFILE" ~/$TKFILE
 done
 
@@ -38,6 +38,6 @@ modify_profile
 cd ~/toolkit > /dev/null 2>&1
 . reload.sh
 
-printf "\nSuccessfully installed toolkit.\n"
+printf "\n✅ Successfully installed toolkit.\n"
 
 cd $OLDPATH > /dev/null 2>&1

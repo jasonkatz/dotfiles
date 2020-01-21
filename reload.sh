@@ -1,5 +1,5 @@
 reload() {
-    printf "Reloading environment...\n\n"
+    printf "🌤  Reloading environment...\n\n"
 
     OLDPATH=$PWD
     cd ~/toolkit/dotfiles > /dev/null 2>&1
@@ -11,5 +11,5 @@ reload() {
 
     cd $OLDPATH > /dev/null 2>&1
 
-    printf "\nSuccessfully reloaded environment.\n"
+    printf "\n☀️  Successfully reloaded environment.\n"
 }
