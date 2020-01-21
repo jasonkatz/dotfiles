@@ -1,4 +1,4 @@
-add_sourcing() {
+modify_profile() {
     printf "\n"
 
     local PROFILE=~/.profile
@@ -41,7 +41,7 @@ ln -s "$VIMRC" ~/.vimrc
 
 printf "Toolkit successfully installed.\n"
 
-add_sourcing
+modify_profile
 
 printf "\n"
 . reload.sh
