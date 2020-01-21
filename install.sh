@@ -49,14 +49,6 @@ do
     ln -s `pwd`/"$VIMFILE" ~/."$VIMFILE"
 done
 
-printf "\nInstalling dotfiles...\n"
-for DOTFILE in `find $(pwd)/dotfiles -type f`
-do
-    printf "Creating symbolic link for ${DOTFILE}\n"
-    FILENAME=$(basename "$DOTFILE")
-    ln -s "$DOTFILE" ~/."$FILENAME.tkd"
-done
-
 printf "Toolkit successfully installed.\n"
 
 add_sourcing
