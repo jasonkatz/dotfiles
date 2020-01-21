@@ -128,11 +128,11 @@ if &term =~ '256color'
     set t_ut=
 endif
 
-autocmd FileType h,cpp map <C-f> :py3f ~/.clang-format.py<cr>
-autocmd FileType h,cpp imap <C-f> <c-o>:py3f ~/.clang-format.py<cr>
+autocmd FileType h,cpp map <C-f> :py3f ~/toolkit/clang-format.py<cr>
+autocmd FileType h,cpp imap <C-f> <c-o>:py3f ~/toolkit/clang-format.py<cr>
 
 function! Formatonsave()
     let l:formatdiff = 1
-    py3f ~/.clang-format.py
+    py3f ~/toolkit/clang-format.py
 endfunction
 autocmd BufWritePre *.h,*.cc,*.cpp call Formatonsave()
