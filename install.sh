@@ -35,14 +35,19 @@ printf "Installing tmux configuration file...\n"
 TMUX_CONF=`find $(pwd) -type f -name "tmux.conf"`
 ln -s "$TMUX_CONF" ~/.tmux.conf
 
-printf "Installing vim configuration file...\n"
+printf "Installing vimrc...\n"
 VIMRC=`find $(pwd) -type f -name "vimrc"`
 ln -s "$VIMRC" ~/.vimrc
 
-printf "Installing vim color scheme file...\n"
-VIMRC=`find $(pwd) -type f -name "monokai.vim"`
-mkdir -p ~/.vim/colors
-ln -s "$VIMRC" ~/.vim/colors/monokai.vim
+printf "Installing vimfiles...\n"
+for VIMFILE in `ls vim/**/*`
+do
+    printf "Creating symbolic link for ${VIMFILE}\n"
+    SUBDIR=`dirname "$VIMFILE"`
+    FILENAME=`basename "$VIMFILE"`
+    mkdir -p ~/."$SUBDIR"
+    ln -s `pwd`/"$VIMFILE" ~/."$VIMFILE"
+done
 
 printf "\nInstalling dotfiles...\n"
 for DOTFILE in `find $(pwd)/dotfiles -type f`
