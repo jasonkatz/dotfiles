@@ -39,16 +39,6 @@ printf "Installing vimrc...\n"
 VIMRC=`find $(pwd) -type f -name "vimrc"`
 ln -s "$VIMRC" ~/.vimrc
 
-printf "Installing vimfiles...\n"
-for VIMFILE in `ls vim/**/*`
-do
-    printf "Creating symbolic link for ${VIMFILE}\n"
-    SUBDIR=`dirname "$VIMFILE"`
-    FILENAME=`basename "$VIMFILE"`
-    mkdir -p ~/."$SUBDIR"
-    ln -s `pwd`/"$VIMFILE" ~/."$VIMFILE"
-done
-
 printf "Toolkit successfully installed.\n"
 
 add_sourcing

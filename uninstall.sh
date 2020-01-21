@@ -3,7 +3,7 @@ OLDPATH=$PWD
 cd ~/toolkit > /dev/null 2>&1
 
 printf "Removing all toolkit files...\n"
-for TKFILE in `find ~ -maxdepth 3 -lname "$(pwd)/*"`
+for TKFILE in `find ~ -maxdepth 1 -lname "$(pwd)/*"`
 do
     rm -f "$TKFILE"
     printf "Removed $TKFILE\n"
@@ -25,5 +25,7 @@ if [[ $PROFILE_CONTENTS =~ $START_TAG ]] && [[ $PROFILE_CONTENTS =~ $END_TAG ]];
 else
     printf "Cannot remove toolkit setup from $PROFILE; start and/or end tag do not exist.\n"
 fi
+
+printf "\n"
 
 cd $OLDPATH > /dev/null 2>&1

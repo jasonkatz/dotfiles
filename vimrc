@@ -1,6 +1,9 @@
 syntax on
 filetype plugin indent on
 
+" Add toolkit vimfiles to the runtimepath
+let &rtp.=','."$HOME/toolkit/vimfiles"
+
 " Information on the following setting can be found with
 " :help set
 set tabstop=4
