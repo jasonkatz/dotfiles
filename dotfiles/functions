@@ -30,11 +30,14 @@ buffer() {
 
 reinstall() {
     bash ~/toolkit/uninstall.sh
+    printf "\n---------------------------\n\n"
     bash ~/toolkit/install.sh
+    printf "\n---------------------------\n\n"
+    reload
 }
 
 start_agent() {
-    echo "Initializing new SSH agent..."
+    printf "\nInitializing new SSH agent..."
     SSH_ENV="$HOME/.ssh/environment"
     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
     echo succeeded

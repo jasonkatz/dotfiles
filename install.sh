@@ -23,6 +23,8 @@ printf "Installing toolkit...\n\n"
 
 OLDPATH=$PWD
 
+printf "Adding links...\n"
+
 cd ~/toolkit/links > /dev/null 2>&1
 
 for TKFILE in `ls -A`
@@ -34,11 +36,8 @@ done
 modify_profile
 
 cd ~/toolkit > /dev/null 2>&1
-
-printf "Toolkit successfully installed.\n"
-
-printf "\n"
 . reload.sh
-reload
+
+printf "\nSuccessfully installed toolkit.\n"
 
 cd $OLDPATH > /dev/null 2>&1

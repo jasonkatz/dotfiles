@@ -1,8 +1,10 @@
+printf "Uninstalling toolkit...\n\n"
+
 OLDPATH=$PWD
 
 cd ~/toolkit > /dev/null 2>&1
 
-printf "Removing all toolkit files...\n"
+printf "Removing links...\n"
 for TKFILE in `find ~ -maxdepth 1 -lname "$(pwd)/*"`
 do
     rm -f "$TKFILE"
@@ -26,6 +28,6 @@ else
     printf "Cannot remove toolkit setup from $PROFILE; start and/or end tag do not exist.\n"
 fi
 
-printf "\n"
-
 cd $OLDPATH > /dev/null 2>&1
+
+printf "\nSuccessfully uninstalled toolkit.\n"
