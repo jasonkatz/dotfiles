@@ -19,29 +19,23 @@ modify_profile() {
     fi
 }
 
+printf "Installing toolkit...\n\n"
+
 OLDPATH=$PWD
+
+cd ~/toolkit/links > /dev/null 2>&1
+
+for TKFILE in `ls -A`
+do
+    printf "Installing $TKFILE...\n"
+    ln -s "$(pwd)/$TKFILE" ~/$TKFILE
+done
+
+modify_profile
 
 cd ~/toolkit > /dev/null 2>&1
 
-printf "Installing input configuration file...\n"
-INPUTRC=`find $(pwd) -type f -name "inputrc"`
-ln -s "$INPUTRC" ~/.inputrc
-
-printf "Installing Xresources file...\n"
-XRESOURCES=`find $(pwd) -type f -name "Xresources"`
-ln -s "$XRESOURCES" ~/.Xresources
-
-printf "Installing tmux configuration file...\n"
-TMUX_CONF=`find $(pwd) -type f -name "tmux.conf"`
-ln -s "$TMUX_CONF" ~/.tmux.conf
-
-printf "Installing vimrc...\n"
-VIMRC=`find $(pwd) -type f -name "vimrc"`
-ln -s "$VIMRC" ~/.vimrc
-
 printf "Toolkit successfully installed.\n"
-
-modify_profile
 
 printf "\n"
 . reload.sh
