@@ -1,5 +1,3 @@
-echo "functions has run"
-
 cd() {
     builtin cd "$@"
     count=$(ls | wc -l);
@@ -10,15 +8,17 @@ cd() {
 }
 
 txdev() {
+    local DIR=`pwd`
+
     tmux start-server
     tmux new-session -d -s $1
-    tmux split-window -h -c '#{pane_current_path}'
+    tmux split-window -h -c $DIR
     tmux rename-window 'edit'
-    tmux new-window -c '#{pane_current_path}'
-    tmux split-window -h -c '#{pane_current_path}'
+    tmux new-window -c $DIR
+    tmux split-window -h -c $DIR
     tmux rename-window 'build'
-    tmux new-window -c '#{pane_current_path}'
-    tmux split-window -h -c '#{pane_current_path}'
+    tmux new-window -c $DIR
+    tmux split-window -h -c $DIR
     tmux rename-window 'git'
     tmux select-window -t 'git'
     tmux attach-session -t $1
@@ -30,11 +30,14 @@ buffer() {
 
 reinstall() {
     bash ~/toolkit/uninstall.sh
+    printf "\n---------------------------\n\n"
     bash ~/toolkit/install.sh
+    printf "\n---------------------------\n\n"
+    reload
 }
 
 start_agent() {
-    echo "Initializing new SSH agent..."
+    printf "\nInitializing new SSH agent..."
     SSH_ENV="$HOME/.ssh/environment"
     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
     echo succeeded
