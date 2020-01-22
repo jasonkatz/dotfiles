@@ -7,6 +7,7 @@ reload() {
     for DOTFILE in `ls`
     do
         [ -f "$DOTFILE" ] && source "$DOTFILE"
+        printf "$DOTFILE has run\n"
     done
 
     cd $OLDPATH > /dev/null 2>&1

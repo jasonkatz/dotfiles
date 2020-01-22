@@ -1,5 +1,3 @@
-echo "aliases has run"
-
 # Edit toolkit
 alias config="vim ~/toolkit"
 

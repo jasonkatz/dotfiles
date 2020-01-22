@@ -1,5 +1,3 @@
-echo "prompt has run"
-
 # Normal Colors
 Black=$'\e[0;30m'        # Black
 Red=$'\e[0;31m'          # Red
