@@ -10,15 +10,17 @@ cd() {
 }
 
 txdev() {
+    local DIR=`pwd`
+
     tmux start-server
     tmux new-session -d -s $1
-    tmux split-window -h -c '#{pane_current_path}'
+    tmux split-window -h -c $DIR
     tmux rename-window 'edit'
-    tmux new-window -c '#{pane_current_path}'
-    tmux split-window -h -c '#{pane_current_path}'
+    tmux new-window -c $DIR
+    tmux split-window -h -c $DIR
     tmux rename-window 'build'
-    tmux new-window -c '#{pane_current_path}'
-    tmux split-window -h -c '#{pane_current_path}'
+    tmux new-window -c $DIR
+    tmux split-window -h -c $DIR
     tmux rename-window 'git'
     tmux select-window -t 'git'
     tmux attach-session -t $1
