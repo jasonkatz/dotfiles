@@ -382,8 +382,8 @@ bind -n M-n next-window
 bind -n M-p previous-window
 
 # Reorder windows using Alt-P without prefix
-bind -n M-N swap-window -t +1
-bind -n M-P swap-window -t -1
+bind -n M-N swap-window -t +1\; select-window -t +1
+bind -n M-P swap-window -t -1\; select-window -t -1
 
 # Rename window using Alt-, without prefix
 bind -n M-, command-prompt 'rename-window %%'
