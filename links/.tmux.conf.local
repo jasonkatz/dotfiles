@@ -374,9 +374,6 @@ bind -n M-w kill-pane
 # Create new window in current dir using Alt-t without prefix
 bind -n M-t new-window -c '#{pane_current_path}'
 
-# Create new window in home dir using Alt-T without prefix
-bind -n M-T new-window
-
 # Break pane into new window using Alt-y without prefix
 bind -n M-y break-pane
 
