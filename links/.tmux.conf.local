@@ -368,6 +368,9 @@ bind -n M-z resize-pane -Z
 # Display pane indices using Alt-q without prefix
 bind -n M-q display-panes
 
+# Toggle synchronized panes using Ctrl-Alt-s without prefix
+bind -n C-M-s setw synchronize-panes
+
 # Kill pane using Alt-w without prefix
 bind -n M-w kill-pane
 

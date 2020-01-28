@@ -140,6 +140,10 @@
       "Text" : "0x1b 0x54",
       "Action" : 11
     },
+    "0x73-0x140000" : {
+      "Action" : 11,
+      "Text" : "0x1b 0x13"
+    },
     "0xf702-0x280000" : {
       "Action" : 11,
       "Text" : "0x1b 0x1b 0x5b 0x44"
