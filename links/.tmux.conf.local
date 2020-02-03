@@ -73,7 +73,7 @@ tmux_conf_theme_highlight_focused_pane=false
 
 # focused pane colours:
 tmux_conf_theme_focused_pane_fg='default'
-tmux_conf_theme_focused_pane_bg='#0087d7'               # light blue
+tmux_conf_theme_focused_pane_bg=$theme_color_blue_normal
 
 # pane border style, possible values are:
 #   - thin (default)
@@ -85,8 +85,8 @@ tmux_conf_theme_pane_border=$theme_color_bg
 tmux_conf_theme_pane_active_border=$theme_color_blue_normal            # light blue
 
 # pane indicator colours
-tmux_conf_theme_pane_indicator='#00afff'                # light blue
-tmux_conf_theme_pane_active_indicator='#00afff'         # light blue
+tmux_conf_theme_pane_indicator=$theme_color_blue_normal
+tmux_conf_theme_pane_active_indicator=$theme_color_blue_normal
 
 # status line style
 tmux_conf_theme_message_fg=$theme_color_black_normal
@@ -154,7 +154,7 @@ tmux_conf_theme_window_status_activity_bg='default'
 tmux_conf_theme_window_status_activity_attr='underscore'
 
 # window bell status style
-tmux_conf_theme_window_status_bell_fg='#ffff00'         # yellow
+tmux_conf_theme_window_status_bell_fg=$theme_color_yellow_normal
 tmux_conf_theme_window_status_bell_bg='default'
 tmux_conf_theme_window_status_bell_attr='blink,bold'
 
@@ -277,7 +277,7 @@ tmux_conf_battery_status_discharging='🔋 ' # U+1F50B
 
 # clock style (when you hit <prefix> + t)
 # you may want to use %I:%M %p in place of %R in tmux_conf_theme_status_right
-tmux_conf_theme_clock_colour='#00afff'  # light blue
+tmux_conf_theme_clock_colour=$theme_color_blue_normal
 tmux_conf_theme_clock_style='24'
 
 
