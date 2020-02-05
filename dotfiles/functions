@@ -24,6 +24,46 @@ txdev() {
     tmux attach-session -t $1
 }
 
+txdc() {
+    if [ -z ${TMUX+x} ]; then
+        echo "Must be run in a tmux session"
+        return
+    fi
+
+    if [ ! -f docker-compose.yaml ] && [ ! -f docker-compose.yml ]; then
+        echo "No docker-compose.yaml or docker-compose.yml file found"
+        return
+    fi
+
+    local DIR=`pwd`
+    local MAIN_CONTAINER=${1:-`basename $DIR`}
+
+    tmux new-window -a -c $DIR
+    tmux rename-window 'docker'
+
+    tmux send-keys 'dcu -d; tmux wait-for -S dcu' Enter\; wait-for dcu
+
+    tmux split-window -h -p 70
+    tmux send-keys 'dca ' $MAIN_CONTAINER Enter
+
+    tmux split-window -v
+    tmux send-keys 'dca ' $MAIN_CONTAINER Enter
+
+    tmux split-window -v -f -p 45
+    tmux send-keys 'dcl' Enter
+
+    tmux split-window -v
+    tmux send-keys 'docker-compose ps -q | xargs docker stats' Enter
+
+    tmux select-pane -t 1
+
+    echo "Success"
+}
+
+dca() {
+    docker-compose exec $1 bash
+}
+
 buffer() {
     cat $1 > ~/public_html/text
 }
