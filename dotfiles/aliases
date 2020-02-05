@@ -46,7 +46,7 @@ alias gpr="git remote prune origin"
 alias gg="git grep -n"
 
 # tmux aliases
-alias tmux="tmux -u2"
+alias tx="tmux -u2"
 alias txl="tmux ls"
 alias txn="tmux new -s"
 alias txa="tmux attach -t"
