@@ -19,6 +19,12 @@ set autochdir
 set laststatus=2
 set numberwidth=5
 
+" 2-space tabs for js/ts
+autocmd FileType javascript setlocal ts=2 sts=2 sw=2
+autocmd FileType javascriptreact setlocal ts=2 sts=2 sw=2
+autocmd FileType typescript setlocal ts=2 sts=2 sw=2
+autocmd FileType typescriptreact setlocal ts=2 sts=2 sw=2
+
 "
 " From Craig's .vimrc
 "
