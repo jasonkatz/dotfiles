@@ -1,3 +1,11 @@
+call plug#begin('~/.vim/plugged')
+
+Plug 'prettier/vim-prettier', {
+    \ 'do': 'npm install',
+    \ 'for': ['javascript', 'typescript', 'json'] }
+
+call plug#end()
+
 syntax on
 filetype plugin indent on
 
@@ -133,6 +141,10 @@ if &term =~ '256color'
     " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
     set t_ut=
 endif
+
+" vim-prettier auto-format on save
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.ts,*.js,*.json PrettierAsync
 
 autocmd FileType h,cpp map <C-f> :py3f ~/toolkit/clang-format.py<cr>
 autocmd FileType h,cpp imap <C-f> <c-o>:py3f ~/toolkit/clang-format.py<cr>
