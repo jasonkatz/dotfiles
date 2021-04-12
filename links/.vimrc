@@ -1,3 +1,9 @@
+call plug#begin('~/.vim/plugged')
+
+Plug 'dense-analysis/ale'
+
+call plug#end()
+
 syntax on
 filetype plugin indent on
 
@@ -19,11 +25,13 @@ set autochdir
 set laststatus=2
 set numberwidth=5
 
-" 2-space tabs for js/ts
+" 2-space tabs for js/ts/react/graphql
 autocmd FileType javascript setlocal ts=2 sts=2 sw=2
 autocmd FileType javascriptreact setlocal ts=2 sts=2 sw=2
 autocmd FileType typescript setlocal ts=2 sts=2 sw=2
 autocmd FileType typescriptreact setlocal ts=2 sts=2 sw=2
+autocmd FileType graphql setlocal ts=2 sts=2 sw=2
+
 
 "
 " From Craig's .vimrc
@@ -94,37 +102,25 @@ autocmd BufNewFile *.cpp exec ":call CppCodeSkeleton()"
 autocmd BufNewFile *.h exec ":call HeaderCodeSkeleton()"
 
 function CppCodeSkeleton()
-    call setline(1,             "/************************************************")
-    call append(line(".")    ,  "***File name: ".expand("%:t"))
-    call append(line(".") + 1,  "***Author: Jason Katz (jkatz94@gmail.com)")
-    call append(line(".") + 2,  "***Create time: ".strftime("%c"))
-    call append(line(".") + 3,  "*************************************************/")
-    call append(line(".") + 4,  "")
-    call append(line(".") + 5,  "namespace package {")
-    call append(line(".") + 6,  "")
-    call append(line(".") + 7,  "")
-    call append(line(".") + 8,  "")
-    call append(line(".") + 9,  "}  // close package namespace")
+    call setline(1,             "namespace package {")
+    call append(line(".")    ,  "")
+    call append(line(".") + 1,  "")
+    call append(line(".") + 2,  "")
+    call append(line(".") + 3,  "}  // close package namespace")
 endfunction
 
 function HeaderCodeSkeleton()
-    call setline(1,             "/************************************************")
-    call append(line(".")    ,  "***File name: ".expand("%:t"))
-    call append(line(".") + 1,  "***Author: Jason Katz (jkatz94@gmail.com)")
-    call append(line(".") + 2,  "***Create time: ".strftime("%c"))
-    call append(line(".") + 3,  "*************************************************/")
-    call append(line(".") + 4,  "")
     let IncludeGuard = "INCLUDED_".toupper(expand("%:t:r"))
-    call append(line(".") + 5,  "#ifndef ".IncludeGuard)
-    call append(line(".") + 6,  "#define ".IncludeGuard)
-    call append(line(".") + 7,  "")
-    call append(line(".") + 8,  "namespace package {")
-    call append(line(".") + 9,  "")
-    call append(line(".") + 10, "")
-    call append(line(".") + 11, "")
-    call append(line(".") + 12, "}  // close package namespace")
-    call append(line(".") + 13, "")
-    call append(line(".") + 14, "#endif")
+    call setline(1,             "#ifndef ".IncludeGuard)
+    call append(line(".")    ,  "#define ".IncludeGuard)
+    call append(line(".") + 1,  "")
+    call append(line(".") + 2,  "namespace package {")
+    call append(line(".") + 3,  "")
+    call append(line(".") + 4, "")
+    call append(line(".") + 5, "")
+    call append(line(".") + 6, "}  // close package namespace")
+    call append(line(".") + 7, "")
+    call append(line(".") + 8, "#endif")
 endfunction
 
 if &term =~ '256color'
@@ -133,6 +129,10 @@ if &term =~ '256color'
     " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
     set t_ut=
 endif
+
+let g:ale_fixers = { 'javascript': ['prettier'], 'typescript': ['prettier'], 'json': ['prettier'], 'javascriptreact': ['prettier'], 'typescriptreact': ['prettier'] }
+let g:ale_fix_on_save = 1
+highlight ALEError ctermbg=DarkGray
 
 autocmd FileType h,cpp map <C-f> :py3f ~/toolkit/clang-format.py<cr>
 autocmd FileType h,cpp imap <C-f> <c-o>:py3f ~/toolkit/clang-format.py<cr>
