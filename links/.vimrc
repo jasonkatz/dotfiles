@@ -1,8 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'prettier/vim-prettier', {
-    \ 'do': 'npm install',
-    \ 'for': ['javascript', 'typescript', 'json'] }
+Plug 'dense-analysis/ale'
 
 call plug#end()
 
@@ -142,9 +140,9 @@ if &term =~ '256color'
     set t_ut=
 endif
 
-" vim-prettier auto-format on save
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.ts,*.js,*.json PrettierAsync
+let g:ale_fixers = { 'javascript': ['prettier'], 'typescript': ['prettier'], 'json': ['prettier'], 'javascriptreact': ['prettier'], 'typescriptreact': ['prettier'] }
+let g:ale_fix_on_save = 1
+highlight ALEError ctermbg=DarkGray
 
 autocmd FileType h,cpp map <C-f> :py3f ~/toolkit/clang-format.py<cr>
 autocmd FileType h,cpp imap <C-f> <c-o>:py3f ~/toolkit/clang-format.py<cr>
