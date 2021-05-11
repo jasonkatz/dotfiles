@@ -329,8 +329,8 @@ bind -n M-u set-window-option synchronize-panes
 # Browse sessions using Alt-s without prefix
 bind -n M-s choose-tree -s
 
-# Browse sessions using Alt-s without prefix
-bind -n M-< command-prompt 'rename-session %%'
+# Rename session using Alt-M without prefix
+bind -n M-M command-prompt 'rename-session %%'
 
 # Disable pane switching with ESC
 set -s escape-time 0
@@ -338,13 +338,9 @@ set -s escape-time 0
 # Reload pane with Alt-r without prefix
 bind -n M-r respawn-pane -k
 
-# Split panes to current dir using Alt-\ and Alt-- without prefix
-bind -n M-'\' split-window -h -c '#{pane_current_path}'
-bind -n M-- split-window -v -c '#{pane_current_path}'
-
-# Split panes to home dir using Alt-| and Alt-_ without prefix
-bind -n M-| split-window -h
-bind -n M-_ split-window -v
+# Split panes using Alt-[ and Alt-] without prefix
+bind -n M-[ split-window -v
+bind -n M-] split-window -h
 
 # Switch panes using Alt-hjkl without prefix
 bind -n M-h select-pane -L
@@ -367,28 +363,28 @@ bind -n C-M-l resize-pane -R
 # Toggle maximized/focused pane using Alt-z without prefix
 bind -n M-z resize-pane -Z
 
-# Display pane indices using Alt-q without prefix
-bind -n M-q display-panes
+# Display pane indices using Alt-p without prefix
+bind -n M-p display-panes
 
 # Kill pane using Alt-w without prefix
 bind -n M-w kill-pane
 
-# Create new window in current dir using Alt-t without prefix
-bind -n M-t new-window -c '#{pane_current_path}'
+# Create new window in using Alt-t without prefix
+bind -n M-t new-window
 
 # Break pane into new window using Alt-y without prefix
 bind -n M-y break-pane
 
-# Switch windows using Alt-n and Alt-p without prefix
-bind -n M-n next-window
-bind -n M-p previous-window
+# Switch windows using Alt-, and Alt-. without prefix
+bind -n M-. next-window
+bind -n M-, previous-window
 
-# Reorder windows using Alt-P without prefix
-bind -n M-N swap-window -t +1\; select-window -t +1
-bind -n M-P swap-window -t -1\; select-window -t -1
+# Reorder windows using Alt-> and Alt-< without prefix
+bind -n M-> swap-window -t +1\; select-window -t +1
+bind -n M-< swap-window -t -1\; select-window -t -1
 
-# Rename window using Alt-, without prefix
-bind -n M-, command-prompt 'rename-window %%'
+# Rename window using Alt-m without prefix
+bind -n M-m command-prompt 'rename-window %%'
 
 # Kill window using Alt-W without prefix
 bind -n M-W kill-window
