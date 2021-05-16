@@ -13,6 +13,11 @@ done
 
 printf "\n"
 
+printf "🔧 Removing iTerm dynamic profile...\n"
+rm -f ~/Library/Application\ Support/iTerm2/DynamicProfiles/toolkit-dynamic-profiles.json
+
+printf "\n"
+
 PROFILE=~/.profile
 
 START_TAG="TOOLKIT SETUP START"

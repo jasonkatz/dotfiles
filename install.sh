@@ -33,6 +33,11 @@ do
     ln -s "$(pwd)/$TKFILE" ~/$TKFILE
 done
 
+printf "\n"
+
+printf "🔧 Installing iTerm dynamic profile...\n"
+ln -s ~/toolkit/iterm-dynamic-profiles.json ~/Library/Application\ Support/iTerm2/DynamicProfiles/toolkit-dynamic-profiles.json
+
 modify_profile
 
 cd ~/toolkit > /dev/null 2>&1
