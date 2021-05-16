@@ -1,3 +1,5 @@
+#!/bin/bash
+
 modify_profile() {
     printf "\n"
 

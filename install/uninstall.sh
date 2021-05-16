@@ -1,3 +1,5 @@
+#!/bin/bash
+
 printf "🛠  Uninstalling toolkit...\n\n"
 
 OLDPATH=$PWD

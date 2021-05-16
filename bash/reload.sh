@@ -1,3 +1,5 @@
+#!/bin/bash
+
 reload() {
     printf "🌤  Reloading environment...\n\n"
 
