@@ -22,6 +22,8 @@ alias rm="rm -i"
 
 alias usage="du -sh"
 
+alias v="vim"
+
 alias cml="vim CMakeLists.txt"
 
 # git aliases
