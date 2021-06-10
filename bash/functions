@@ -29,11 +29,11 @@ buffer() {
 }
 
 reinstall() {
-    bash ~/toolkit/uninstall.sh
+    bash ~/dotfiles/uninstall.sh
     printf "\n---------------------------\n\n"
-    bash ~/toolkit/install.sh
+    bash ~/dotfiles/install.sh
     printf "\n---------------------------\n\n"
-    reload
+    load
 }
 
 start_agent() {

@@ -1,5 +1,5 @@
-# Edit toolkit
-alias config="vim ~/toolkit"
+# Edit dotfiles
+alias config="vim ~/dotfiles"
 
 # root
 alias root="sudo -i"
