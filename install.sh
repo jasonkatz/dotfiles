@@ -1,48 +1,26 @@
-modify_profile() {
-    printf "\n"
-
-    local PROFILE=~/.profile
-
-    local START_TAG="TOOLKIT SETUP START"
-    local END_TAG="TOOLKIT SETUP END"
-
-    local PROFILE_CONTENTS=$(cat $PROFILE)
-    if [[ ! $PROFILE_CONTENTS =~ $START_TAG ]] && [[ ! $PROFILE_CONTENTS =~ $END_TAG ]]; then
-        printf "# $START_TAG\n" >> $PROFILE
-        printf ". ~/toolkit/reload.sh\nreload\n" >> $PROFILE
-        printf "startup\n" >> $PROFILE
-        printf "# $END_TAG\n" >> $PROFILE
-
-        printf "🏠 Added toolkit setup to $PROFILE\n"
-    else
-        printf "🚫 Cannot add toolkit setup to $PROFILE; start and/or end tag already exist.\n"
-    fi
-}
-
-printf "🛠  Installing toolkit...\n\n"
+#!/bin/bash
 
 OLDPATH=$PWD
+cd "$(dirname "$0")"
 
-printf "🔗 Adding links...\n"
+printf "🛠  Installing dotfiles package...\n\n"
 
-cd ~/toolkit/links > /dev/null 2>&1
+DOTFILES_DEST=~/installed-dotfiles
+mkdir -p $DOTFILES_DEST
 
-for TKFILE in `ls -A`
-do
-    printf "🔧 Installing $TKFILE...\n"
-    ln -s "$(pwd)/$TKFILE" ~/$TKFILE
-done
+LOAD_SCRIPT_PATH="$PWD/load.sh"
 
-printf "\n"
+. ./install-functions.sh
 
-printf "🔧 Installing iTerm dynamic profile...\n"
-ln -s ~/toolkit/iterm-dynamic-profiles.json ~/Library/Application\ Support/iTerm2/DynamicProfiles/toolkit-dynamic-profiles.json
+install_configs bash
+install_configs clang-format
+install_configs git
+install_configs iterm
+install_configs tmux
+install_configs unix
+install_configs vim
+install_configs X11
 
-modify_profile
+printf "✅ Successfully installed dotfiles package\n"
 
-cd ~/toolkit > /dev/null 2>&1
-. reload.sh
-
-printf "\n✅ Successfully installed toolkit.\n"
-
-cd $OLDPATH > /dev/null 2>&1
+cd "$OLDPATH" /dev/null 2>&1

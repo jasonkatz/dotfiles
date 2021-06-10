@@ -1,38 +1,24 @@
-printf "🛠  Uninstalling toolkit...\n\n"
+#!/bin/bash
 
 OLDPATH=$PWD
+cd "$(dirname "$0")"
 
-cd ~/toolkit > /dev/null 2>&1
+printf "🛠  Removing dotfiles package...\n\n"
 
-printf "🔗 Removing links...\n"
-for TKFILE in `find ~ -maxdepth 1 -lname "$(pwd)/*"`
-do
-    rm -f "$TKFILE"
-    printf "🔧 Removed $TKFILE\n"
-done
+DOTFILES_DEST=~/installed-dotfiles
+rm -rf $DOTFILES_DEST
 
-printf "\n"
+. ./uninstall-functions.sh
 
-printf "🔧 Removing iTerm dynamic profile...\n"
-rm -f ~/Library/Application\ Support/iTerm2/DynamicProfiles/toolkit-dynamic-profiles.json
+uninstall_configs bash
+uninstall_configs clang-format
+uninstall_configs git
+uninstall_configs iterm
+uninstall_configs tmux
+uninstall_configs unix
+uninstall_configs vim
+uninstall_configs X11
 
-printf "\n"
+printf "✅ Successfully removed dotfiles package.\n"
 
-PROFILE=~/.profile
-
-START_TAG="TOOLKIT SETUP START"
-END_TAG="TOOLKIT SETUP END"
-
-PROFILE_CONTENTS=$(cat $PROFILE)
-if [[ $PROFILE_CONTENTS =~ $START_TAG ]] && [[ $PROFILE_CONTENTS =~ $END_TAG ]]; then
-    sed "/$START_TAG/,/$END_TAG/d" $PROFILE > $PROFILE.tmp
-    cp $PROFILE.tmp $PROFILE
-
-    printf "🏠 Removed toolkit setup from $PROFILE\n"
-else
-    printf "🚫 Cannot remove toolkit setup from $PROFILE; start and/or end tag do not exist.\n"
-fi
-
-cd $OLDPATH > /dev/null 2>&1
-
-printf "\n✅ Successfully uninstalled toolkit.\n"
+cd "$OLDPATH" /dev/null 2>&1

@@ -7,9 +7,6 @@ call plug#end()
 syntax on
 filetype plugin indent on
 
-" Add toolkit vimfiles to the runtimepath
-let &rtp.=','."$HOME/toolkit/vimfiles"
-
 " Information on the following setting can be found with
 " :help set
 set tabstop=4
@@ -134,11 +131,11 @@ let g:ale_fixers = { 'javascript': ['prettier'], 'typescript': ['prettier'], 'js
 let g:ale_fix_on_save = 1
 highlight ALEError ctermbg=DarkGray
 
-autocmd FileType h,cpp map <C-f> :py3f ~/toolkit/clang-format.py<cr>
-autocmd FileType h,cpp imap <C-f> <c-o>:py3f ~/toolkit/clang-format.py<cr>
+autocmd FileType h,cpp map <C-f> :py3f ~/clang-format.py<cr>
+autocmd FileType h,cpp imap <C-f> <c-o>:py3f ~/clang-format.py<cr>
 
 function! Formatonsave()
     let l:formatdiff = 1
-    py3f ~/toolkit/clang-format.py
+    py3f ~/clang-format.py
 endfunction
 autocmd BufWritePre *.h,*.cc,*.cpp call Formatonsave()
