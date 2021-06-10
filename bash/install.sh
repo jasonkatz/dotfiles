@@ -20,7 +20,7 @@ modify_profile() {
 
     local PROFILE_CONTENTS=$(cat $PROFILE)
     if [[ ! $PROFILE_CONTENTS =~ $START_TAG ]] && [[ ! $PROFILE_CONTENTS =~ $END_TAG ]]; then
-        printf "\n# $START_TAG\n" >> $PROFILE
+        printf "# $START_TAG\n" >> $PROFILE
         printf ". $LOAD_SCRIPT_PATH\nload\n" >> $PROFILE
         printf "startup\n" >> $PROFILE
         printf "# $END_TAG\n" >> $PROFILE
