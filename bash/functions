@@ -58,3 +58,18 @@ startup() {
 
     stty -ixon
 }
+
+gpsc() {
+    local CURRENT_BRANCH=$(git branch --show-current)
+    git push origin $CURRENT_BRANCH
+}
+
+gcodgpl() {
+    local DEFAULT_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
+    git checkout $DEFAULT_BRANCH && git pull origin $DEFAULT_BRANCH
+}
+
+grbid() {
+    local DEFAULT_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
+    git rebase -i $DEFAULT_BRANCH
+}
