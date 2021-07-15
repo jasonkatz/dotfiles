@@ -8,7 +8,7 @@ printf "🛠  Installing dotfiles package...\n\n"
 DOTFILES_DEST=~/installed-dotfiles
 mkdir -p $DOTFILES_DEST
 
-LOAD_SCRIPT_PATH="$PWD/load.sh"
+LOAD_SCRIPT_PATH="$PWD/load.zsh"
 
 . ./install-functions.sh
 

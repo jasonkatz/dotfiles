@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 load() {
     local DOTFILES_LOCATION=~/installed-dotfiles
