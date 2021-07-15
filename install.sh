@@ -12,7 +12,6 @@ LOAD_SCRIPT_PATH="$PWD/load.sh"
 
 . ./install-functions.sh
 
-install_configs bash
 install_configs clang-format
 install_configs git
 install_configs iterm
@@ -20,6 +19,7 @@ install_configs tmux
 install_configs unix
 install_configs vim
 install_configs X11
+install_configs zsh
 
 printf "✅ Successfully installed dotfiles package\n"
 
