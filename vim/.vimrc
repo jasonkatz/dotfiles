@@ -5,6 +5,7 @@ Plug 'dense-analysis/ale'
 call plug#end()
 
 syntax on
+set re=0
 filetype plugin indent on
 
 " Information on the following setting can be found with
