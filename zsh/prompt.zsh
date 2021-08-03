@@ -62,8 +62,14 @@ git_info() {
 
 }
 
+get_venv() {
+    if [[ -n "$VIRTUAL_ENV" ]]; then
+        echo "(venv) "
+    fi
+}
+
 # Use ❯ as the non-root prompt character; # for root
 # Change the prompt character color if the last command had a nonzero exit code
 PROMPT='
 %{$fg[yellow]%}%*%{$fg[cyan]%}$(ssh_info) %{$fg[magenta]%}%1~%{$reset_color%} $(git_info)
-%(?.%{$fg[green]%}.%{$fg[red]%})%(!.#.❯)%{$reset_color%} '
+%{$fg[blue]%}$(get_venv)%(?.%{$fg[green]%}.%{$fg[red]%})%(!.#.❯)%{$reset_color%} '
