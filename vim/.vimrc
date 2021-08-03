@@ -84,6 +84,9 @@ inoremap Kj <ESC>
 inoremap kJ <ESC>
 inoremap KJ <ESC>
 
+" <leader>c to close a buffer
+nmap <leader>c :bd<CR>
+
 if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
@@ -131,6 +134,7 @@ endif
 let g:ale_fixers = { 'javascript': ['prettier'], 'typescript': ['prettier'], 'json': ['prettier'], 'javascriptreact': ['prettier'], 'typescriptreact': ['prettier'] }
 let g:ale_fix_on_save = 1
 highlight ALEError ctermbg=DarkGray
+nmap <leader>e :ALEDetail<CR>
 
 autocmd FileType h,cpp map <C-f> :py3f ~/clang-format.py<cr>
 autocmd FileType h,cpp imap <C-f> <c-o>:py3f ~/clang-format.py<cr>
