@@ -58,3 +58,11 @@ startup() {
 
     stty -ixon
 }
+
+kexec() {
+    kubectl exec --stdin --tty $1 -- /bin/bash
+}
+
+pkill() {
+    kill $(lsof -t -i:$1)
+}
