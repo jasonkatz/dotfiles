@@ -23,6 +23,16 @@ set autochdir
 set laststatus=2
 set numberwidth=5
 
+" Configure cursor to block, bar in insert mode
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
+" Reset the cursor on start (for older versions of vim, usually not required)
+augroup myCmds
+au!
+autocmd VimEnter * silent !echo -ne "\e[2 q"
+augroup END
+
 " 2-space tabs for js/ts/react/graphql
 autocmd FileType javascript setlocal ts=2 sts=2 sw=2
 autocmd FileType javascriptreact setlocal ts=2 sts=2 sw=2
