@@ -8,3 +8,6 @@ uninstall_file $DOCKERFILE_VIM_PATH ~/.vim/syntax/$(basename $DOCKERFILE_VIM_PAT
 
 MONOKAI_VIM_PATH="$PWD/vimfiles/colors/monokai.vim"
 uninstall_file $MONOKAI_VIM_PATH ~/.vim/colors/$(basename $MONOKAI_VIM_PATH)
+
+COC_SETTINGS_VIM_PATH="$PWD/vimfiles/coc-settings.json"
+uninstall_file $COC_SETTINGS_VIM_PATH ~/.vim/$(basename $COC_SETTINGS_VIM_PATH)

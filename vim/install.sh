@@ -10,3 +10,6 @@ install_file $DOCKERFILE_VIM_PATH ~/.vim/syntax
 mkdir -p ~/.vim/colors
 MONOKAI_VIM_PATH="$PWD/vimfiles/colors/monokai.vim"
 install_file $MONOKAI_VIM_PATH ~/.vim/colors
+
+COC_SETTINGS_VIM_PATH="$PWD/vimfiles/coc-settings.json"
+install_file $COC_SETTINGS_VIM_PATH ~/.vim

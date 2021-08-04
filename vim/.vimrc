@@ -1,6 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'dense-analysis/ale'
+Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 
 call plug#end()
 
@@ -10,6 +10,7 @@ filetype plugin indent on
 
 " Information on the following setting can be found with
 " :help set
+set encoding=utf-8
 set tabstop=4
 set expandtab
 set autoindent
@@ -141,10 +142,59 @@ if &term =~ '256color'
     set t_ut=
 endif
 
-let g:ale_fixers = { 'javascript': ['prettier'], 'typescript': ['prettier'], 'json': ['prettier'], 'javascriptreact': ['prettier'], 'typescriptreact': ['prettier'] }
-let g:ale_fix_on_save = 1
-highlight ALEError ctermbg=DarkGray
-nmap <leader>e :ALEDetail<CR>
+""""""""""""""""""""""""
+" coc configuration
+""""""""""""""""""""""""
+
+let g:coc_global_extensions = [ 'coc-tsserver', 'coc-eslint' ]
+
+" Improve menu color
+highlight Pmenu ctermbg=black
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use <leader>-d to show documentation in preview window.
+nnoremap <silent> <leader>d :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f :CocCommand eslint.executeAutofix<cr>
+nmap <leader>f :CocCommand eslint.executeAutofix<cr>
 
 autocmd FileType h,cpp map <C-f> :py3f ~/clang-format.py<cr>
 autocmd FileType h,cpp imap <C-f> <c-o>:py3f ~/clang-format.py<cr>
