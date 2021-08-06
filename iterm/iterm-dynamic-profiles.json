@@ -380,9 +380,9 @@
           },
           "Shortcut" : "T",
           "Cursor Color" : {
-            "Green Component" : 0.24263888597488403,
-            "Blue Component" : 0.098565541207790347,
-            "Red Component" : 0.9727436900138855
+            "Green Component" : 0.60392156862,
+            "Blue Component" : 0.60392156862,
+            "Red Component" : 0.6
           },
           "Ansi 0 Color" : {
             "Green Component" : 0.23855249583721161,
