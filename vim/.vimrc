@@ -151,6 +151,9 @@ let g:coc_global_extensions = [ 'coc-tsserver', 'coc-eslint' ]
 " Improve menu color
 highlight Pmenu ctermbg=black
 
+" Improve highlight color
+highlight CursorColumn term=reverse cterm=underline gui=underline ctermfg=141 guifg=#ae81ff
+
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -188,6 +191,7 @@ endfunction
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
+set updatetime=300
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
