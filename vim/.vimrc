@@ -41,7 +41,6 @@ autocmd FileType typescript setlocal ts=2 sts=2 sw=2
 autocmd FileType typescriptreact setlocal ts=2 sts=2 sw=2
 autocmd FileType graphql setlocal ts=2 sts=2 sw=2
 
-
 "
 " From Craig's .vimrc
 "
@@ -63,6 +62,9 @@ set mat=2
 "
 " End of Craig's stuff
 "
+
+vnoremap <leader>y "*y
+nnoremap <leader>y "*y
 
 nmap \l :setlocal number!<CR>
 nmap \p :set paste!<CR>
