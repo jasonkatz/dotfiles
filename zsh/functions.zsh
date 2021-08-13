@@ -59,6 +59,10 @@ startup() {
     stty -ixon
 }
 
+dbash() {
+    docker exec -it $1 bash
+}
+
 kexec() {
     kubectl exec --stdin --tty $1 -- /bin/bash
 }
