@@ -67,6 +67,8 @@ set mat=2
 vnoremap <leader>y "*y
 nnoremap <leader>y "*y
 
+map m %
+
 nmap \l :setlocal number!<CR>
 nmap \p :set paste!<CR>
 
