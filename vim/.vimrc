@@ -64,8 +64,7 @@ set mat=2
 " End of Craig's stuff
 "
 
-vnoremap <leader>y "*y
-nnoremap <leader>y "*y
+noremap <leader>y "*y
 
 map m %
 
