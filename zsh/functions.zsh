@@ -1,5 +1,4 @@
-cd() {
-    builtin cd "$@"
+chpwd() {
     count=$(ls | wc -l);
     if [ $count -lt 100 ]
     then
