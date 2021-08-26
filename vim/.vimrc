@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
+Plug 'https://github.com/adelarsq/vim-matchit'
 
 call plug#end()
 
