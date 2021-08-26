@@ -9,6 +9,9 @@ install_dotfile $ALIASES_PATH
 COMP_PATH="$PWD/comp.zsh"
 install_dotfile $COMP_PATH
 
+AUTOSUGGESTIONS_PATH="$PWD/zsh-autosuggestions.zsh"
+install_dotfile $AUTOSUGGESTIONS_PATH
+
 EXPORTS_PATH="$PWD/exports.zsh"
 install_dotfile $EXPORTS_PATH
 
