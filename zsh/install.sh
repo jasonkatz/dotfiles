@@ -21,9 +21,6 @@ install_dotfile $FUNCTIONS_PATH
 INPUT_PATH="$PWD/input.zsh"
 install_dotfile $INPUT_PATH
 
-PROMPT_PATH="$PWD/prompt.zsh"
-install_dotfile $PROMPT_PATH
-
 modify_zshrc() {
     local ZSHRC=~/.zshrc
 
