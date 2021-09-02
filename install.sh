@@ -14,6 +14,7 @@ LOAD_SCRIPT_PATH="$PWD/load.zsh"
 
 install_configs clang-format
 install_configs iterm
+install_configs powerlevel10k
 install_configs tmux
 install_configs unix
 install_configs vim
