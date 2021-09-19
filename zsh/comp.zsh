@@ -2,7 +2,6 @@ autoload -Uz compinit && compinit
 
 ZSH_AUTOSUGGEST_STRATEGY=(completion history)
 
-bindkey "^I" autosuggest-accept
 bindkey "\x1b" autosuggest-clear
 
 # The following lines were added by compinstall
