@@ -12,6 +12,7 @@ rm -rf $DOTFILES_DEST
 
 uninstall_configs clang-format
 uninstall_configs iterm
+uninstall_configs neovim
 uninstall_configs powerlevel10k
 uninstall_configs tmux
 uninstall_configs unix
