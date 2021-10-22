@@ -2,6 +2,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 Plug 'https://github.com/adelarsq/vim-matchit'
+Plug 'itchyny/lightline.vim'
+Plug 'hashivim/vim-terraform'
 
 call plug#end()
 
@@ -150,7 +152,7 @@ endif
 " coc configuration
 """"""""""""""""""""""""
 
-let g:coc_global_extensions = [ 'coc-tsserver', 'coc-eslint' ]
+let g:coc_global_extensions = [ 'coc-tsserver', 'coc-eslint', 'coc-go' ]
 
 " Improve menu color
 highlight Pmenu ctermbg=black
@@ -203,6 +205,9 @@ nmap <leader>rn <Plug>(coc-rename)
 " Formatting selected code.
 xmap <leader>f :CocCommand eslint.executeAutofix<cr>
 nmap <leader>f :CocCommand eslint.executeAutofix<cr>
+
+autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+
 
 autocmd FileType h,cpp map <C-f> :py3f ~/clang-format.py<cr>
 autocmd FileType h,cpp imap <C-f> <c-o>:py3f ~/clang-format.py<cr>
