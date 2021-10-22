@@ -22,7 +22,7 @@ alias rm="rm -i"
 
 alias usage="du -sh"
 
-alias v="vim"
+alias v="nvim"
 
 alias cml="vim CMakeLists.txt"
 
