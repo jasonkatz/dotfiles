@@ -197,10 +197,10 @@ endfunction
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
-set updatetime=300
+set updatetime=100
 
 " Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>r <Plug>(coc-rename)
 
 " Formatting selected code.
 xmap <leader>f :CocCommand eslint.executeAutofix<cr>
