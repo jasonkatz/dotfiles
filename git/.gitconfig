@@ -1,0 +1,5 @@
+[core]
+	excludesfile = /Users/jason/.gitignore_global
+	editor = nvim
+[pull]
+	ff = only
