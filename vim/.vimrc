@@ -66,6 +66,8 @@ set mat=2
 " End of Craig's stuff
 "
 
+nnoremap <leader>i :PlugInstall<CR>
+
 noremap <leader>y "*y
 
 map m %
