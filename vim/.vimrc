@@ -44,27 +44,18 @@ autocmd FileType typescript setlocal ts=2 sts=2 sw=2
 autocmd FileType typescriptreact setlocal ts=2 sts=2 sw=2
 autocmd FileType graphql setlocal ts=2 sts=2 sw=2
 
-"
-" From Craig's .vimrc
-"
-set wildmenu
 set so=7
 
 let mapleader = ","
-let g:mapleader = ","
 
+" Save shortcuts
 nmap <leader>w :w<CR>
-
 inoremap lkj <ESC>:w<CR>
 
 set lazyredraw
 
 set showmatch
 set mat=2
-
-"
-" End of Craig's stuff
-"
 
 nnoremap <leader>i :PlugInstall<CR>
 
@@ -83,12 +74,16 @@ nmap K <C-y>
 nmap B zb
 nmap T zt
 
+" Move to beginning/end of a line
+nmap E $
+nmap B 0
+
 " Search options
 set incsearch
 set ignorecase
 set smartcase
 set hlsearch
-nmap \q :nohlsearch<CR>
+nmap <leader>/ :nohlsearch<CR>
 
 vnoremap <C-c> "*y
 
@@ -209,6 +204,10 @@ xmap <leader>f :CocCommand eslint.executeAutofix<cr>
 nmap <leader>f :CocCommand eslint.executeAutofix<cr>
 
 autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+
+""""""""""""""""""""""""
+" end coc configuration
+""""""""""""""""""""""""
 
 autocmd FileType h,cpp map <C-f> :py3f ~/clang-format.py<cr>
 autocmd FileType h,cpp imap <C-f> <c-o>:py3f ~/clang-format.py<cr>
