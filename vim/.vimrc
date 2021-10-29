@@ -206,8 +206,7 @@ nmap <leader>r <Plug>(coc-rename)
 xmap <leader>f :CocCommand eslint.executeAutofix<cr>
 nmap <leader>f :CocCommand eslint.executeAutofix<cr>
 
-autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
-
+autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 
 autocmd FileType h,cpp map <C-f> :py3f ~/clang-format.py<cr>
 autocmd FileType h,cpp imap <C-f> <c-o>:py3f ~/clang-format.py<cr>
