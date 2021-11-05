@@ -232,3 +232,11 @@ nnoremap fg :Telescope live_grep<cr>
 nnoremap fb :Telescope buffers<cr>
 nnoremap fh :Telescope help_tags<cr>
 nnoremap fd :Telescope file_browser<cr>
+
+" DAP configuration
+nnoremap <silent> <leader>db :lua require'dap'.toggle_breakpoint()<cr>
+nnoremap <silent> <leader>dc :lua require'dap'.continue()<cr>
+nnoremap <silent> <leader>ds :lua require'dap'.step_over()<cr>
+nnoremap <silent> <leader>do :lua require'dap'.step_out()<cr>
+nnoremap <silent> <leader>di :lua require'dap'.step_into()<cr>
+nnoremap <silent> <leader>dr :lua require'dap'.repl.open()<cr>
