@@ -217,13 +217,6 @@ autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.org
 " end coc configuration
 """"""""""""""""""""""""
 
-" Telescope configuration
-nnoremap ff :Telescope git_files<cr>
-nnoremap fg :Telescope live_grep<cr>
-nnoremap fb :Telescope buffers<cr>
-nnoremap fh :Telescope help_tags<cr>
-nnoremap fd :Telescope file_browser<cr>
-
 autocmd FileType h,cpp map <C-f> :py3f ~/clang-format.py<cr>
 autocmd FileType h,cpp imap <C-f> <c-o>:py3f ~/clang-format.py<cr>
 
@@ -232,3 +225,10 @@ function! Formatonsave()
     py3f ~/clang-format.py
 endfunction
 autocmd BufWritePre *.h,*.cc,*.cpp call Formatonsave()
+
+" Telescope configuration
+nnoremap ff :Telescope git_files<cr>
+nnoremap fg :Telescope live_grep<cr>
+nnoremap fb :Telescope buffers<cr>
+nnoremap fh :Telescope help_tags<cr>
+nnoremap fd :Telescope file_browser<cr>
