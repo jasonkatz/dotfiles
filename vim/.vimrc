@@ -5,6 +5,9 @@ Plug 'https://github.com/adelarsq/vim-matchit'
 Plug 'itchyny/lightline.vim'
 Plug 'hashivim/vim-terraform'
 
+Plug 'mfussenegger/nvim-dap'
+Plug 'Pocco81/DAPInstall.nvim'
+
 call plug#end()
 
 syntax on
