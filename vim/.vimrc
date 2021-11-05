@@ -5,6 +5,11 @@ Plug 'https://github.com/adelarsq/vim-matchit'
 Plug 'itchyny/lightline.vim'
 Plug 'hashivim/vim-terraform'
 
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+
 Plug 'mfussenegger/nvim-dap'
 Plug 'Pocco81/DAPInstall.nvim'
 
@@ -79,7 +84,7 @@ nmap T zt
 
 " Move to beginning/end of a line
 nmap E $
-nmap B 0
+"nmap B 0
 
 " Search options
 set incsearch
@@ -211,6 +216,13 @@ autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.org
 """"""""""""""""""""""""
 " end coc configuration
 """"""""""""""""""""""""
+
+" Telescope configuration
+nnoremap ff :Telescope git_files<cr>
+nnoremap fg :Telescope live_grep<cr>
+nnoremap fb :Telescope buffers<cr>
+nnoremap fh :Telescope help_tags<cr>
+nnoremap fd :Telescope file_browser<cr>
 
 autocmd FileType h,cpp map <C-f> :py3f ~/clang-format.py<cr>
 autocmd FileType h,cpp imap <C-f> <c-o>:py3f ~/clang-format.py<cr>
