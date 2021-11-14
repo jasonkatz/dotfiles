@@ -349,7 +349,7 @@
             }
           },
           "Window Type" : 0,
-          "Initial Text" : "tmux attach || tmux new -s main",
+          "Initial Text" : "",
           "Background Image Location" : "",
           "Blur" : false,
           "Badge Color" : {
