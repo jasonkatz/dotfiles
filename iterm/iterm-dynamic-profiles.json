@@ -17,7 +17,7 @@
             "Blue Component" : 0.69725716114044189,
             "Red Component" : 0.99575066566467285
           },
-          "Normal Font" : "Monaco 14",
+          "Normal Font" : "MesloLGS-NF-Regular 14",
           "Ansi 2 Color" : {
             "Green Component" : 0.60448122024536133,
             "Blue Component" : 0.23052853345870972,
@@ -349,7 +349,7 @@
             }
           },
           "Window Type" : 0,
-          "Initial Text" : "tmux attach || tmux new -s main",
+          "Initial Text" : "",
           "Background Image Location" : "",
           "Blur" : false,
           "Badge Color" : {
@@ -380,9 +380,9 @@
           },
           "Shortcut" : "T",
           "Cursor Color" : {
-            "Green Component" : 0.24263888597488403,
-            "Blue Component" : 0.098565541207790347,
-            "Red Component" : 0.9727436900138855
+            "Green Component" : 0.60392156862,
+            "Blue Component" : 0.60392156862,
+            "Red Component" : 0.6
           },
           "Ansi 0 Color" : {
             "Green Component" : 0.23855249583721161,

@@ -20,9 +20,7 @@ alias cla="clear; lla"
 
 alias rm="rm -i"
 
-alias usage="du -sh"
-
-alias v="vim"
+alias v="nvim"
 
 alias cml="vim CMakeLists.txt"
 
@@ -37,7 +35,7 @@ alias glg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset 
 alias gsh="git show"
 alias gshn="git show --name-only"
 alias gbl="git blame"
-alias gbr="git branch -v"
+alias gbr="git branch"
 alias gco="git checkout"
 alias gmr="git merge"
 alias gd="git diff"
@@ -79,3 +77,10 @@ alias mrestart="sudo service mongodb restart"
 
 # Python aliases
 alias venv="source venv/bin/activate"
+
+# kubernetes aliases
+alias k="kubectl"
+alias tp="telepresence"
+
+# terraform aliases
+alias tf="terraform"

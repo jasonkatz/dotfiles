@@ -18,9 +18,6 @@ uninstall_dotfile $FUNCTIONS_PATH
 INPUT_PATH="$PWD/input.zsh"
 uninstall_dotfile $INPUT_PATH
 
-PROMPT_PATH="$PWD/prompt"
-uninstall_dotfile $PROMPT_PATH
-
 unmodify_zshrc() {
     local ZSHRC=~/.zshrc
 

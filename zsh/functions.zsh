@@ -1,5 +1,4 @@
-cd() {
-    builtin cd "$@"
+chpwd() {
     count=$(ls | wc -l);
     if [ $count -lt 100 ]
     then
@@ -57,4 +56,16 @@ startup() {
     fi
 
     stty -ixon
+}
+
+dbash() {
+    docker exec -it $1 bash
+}
+
+kexec() {
+    kubectl exec --stdin --tty $1 -- /bin/sh
+}
+
+pkill() {
+    kill $(lsof -t -i:$1)
 }

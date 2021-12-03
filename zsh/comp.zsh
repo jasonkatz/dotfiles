@@ -1,5 +1,9 @@
 autoload -Uz compinit && compinit
 
+ZSH_AUTOSUGGEST_STRATEGY=(completion history)
+
+bindkey "\x1b" autosuggest-clear
+
 # The following lines were added by compinstall
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}'
