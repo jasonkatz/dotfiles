@@ -63,7 +63,7 @@ dbash() {
 }
 
 kexec() {
-    kubectl exec --stdin --tty $1 -- /bin/bash
+    kubectl exec --stdin --tty $1 -- /bin/sh
 }
 
 pkill() {
