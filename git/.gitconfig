@@ -3,3 +3,6 @@
 	editor = nvim
 [pull]
 	ff = only
+[user]
+	name = Jason Katz
+	email = jkatz94@gmail.com
