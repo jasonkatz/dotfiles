@@ -69,3 +69,9 @@ kexec() {
 pkill() {
     kill $(lsof -t -i:$1)
 }
+
+_fix_cursor() {
+   echo -ne '\x1b[\x36 q'
+}
+
+precmd_functions+=(_fix_cursor)
