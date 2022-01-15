@@ -39,12 +39,6 @@ set numberwidth=5
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
-" Reset the cursor on exit
-augroup RestoreCursorShapeOnExit
-    autocmd!
-    autocmd VimLeave * set guicursor=a:ver25
-augroup END
-
 " 2-space tabs for js/ts/react/graphql
 autocmd FileType javascript setlocal ts=2 sts=2 sw=2
 autocmd FileType javascriptreact setlocal ts=2 sts=2 sw=2
