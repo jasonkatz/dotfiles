@@ -39,10 +39,10 @@ set numberwidth=5
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
-" Reset the cursor on start (for older versions of vim, usually not required)
-augroup myCmds
-au!
-autocmd VimEnter * silent !echo -ne "\e[2 q"
+" Reset the cursor on exit
+augroup RestoreCursorShapeOnExit
+    autocmd!
+    autocmd VimLeave * set guicursor=a:ver25
 augroup END
 
 " 2-space tabs for js/ts/react/graphql

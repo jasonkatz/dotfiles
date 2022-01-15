@@ -3,5 +3,3 @@ let &packpath = &runtimepath
 source ~/.vimrc
 
 lua require('dap.ext.vscode').load_launchjs()
-
-lua require('config')

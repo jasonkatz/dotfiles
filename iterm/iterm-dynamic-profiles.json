@@ -349,6 +349,7 @@
             }
           },
           "Window Type" : 0,
+          "Cursor Type" : 1,
           "Initial Text" : "",
           "Background Image Location" : "",
           "Blur" : false,
