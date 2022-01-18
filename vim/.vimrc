@@ -90,10 +90,10 @@ nmap <leader>/ :nohlsearch<CR>
 vnoremap <C-c> "*y
 
 " Switch between buffered files quickly
-nmap <C-n> :bnext<CR>
-nmap <C-p> :bprev<CR>
-nmap <C-k> :e %<.cpp<CR>
-nmap <C-h> :e %<.h<CR>
+nmap gn :bnext<CR>
+nmap gp :bprev<CR>
+nmap gk :e %<.cpp<CR>
+nmap gh :e %<.h<CR>
 
 inoremap kj <ESC>
 inoremap Kj <ESC>
