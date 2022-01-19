@@ -92,7 +92,7 @@ vnoremap <C-c> "*y
 " Switch between buffered files quickly
 nmap gn :bnext<CR>
 nmap gp :bprev<CR>
-nmap gk :e %<.cpp<CR>
+nmap gc :e %<.cpp<CR>
 nmap gh :e %<.h<CR>
 
 inoremap kj <ESC>
