@@ -12,6 +12,7 @@ LOAD_SCRIPT_PATH="$PWD/load.zsh"
 
 . ./install-functions.sh
 
+install_configs alacritty
 install_configs clang-format
 install_configs git
 install_configs iterm

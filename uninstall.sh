@@ -10,6 +10,7 @@ rm -rf $DOTFILES_DEST
 
 . ./uninstall-functions.sh
 
+uninstall_configs alacritty
 uninstall_configs clang-format
 uninstall_configs git
 uninstall_configs iterm
