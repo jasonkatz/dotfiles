@@ -856,7 +856,6 @@ key_bindings:
   - { key: W,              mods: Command|Shift,              chars: "\x1b\x57"        }
   - { key: Y,              mods: Command,                    chars: "\x1b\x79"        }
   - { key: Z,              mods: Command,                    chars: "\x1b\x7a"        }
-  - { key: RBracket,       mods: Command,                    chars: "\x1b\x5d"        }
   - { key: LBracket,       mods: Command,                    chars: "\x1b\x5b"        }
   - { key: RBracket,       mods: Command,                    chars: "\x1b\x5d"        }
   - { key: Comma,          mods: Command,                    chars: "\x1b\x2c"        }
