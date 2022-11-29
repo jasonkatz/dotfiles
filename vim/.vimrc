@@ -35,6 +35,8 @@ set autochdir
 set laststatus=2
 set numberwidth=5
 
+imap <C-BS> <C-W>
+
 " Configure cursor to block, bar in insert mode
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
@@ -52,6 +54,8 @@ let mapleader = ","
 
 " Save shortcuts
 nmap <leader>w :w<CR>
+nmap <leader>q :q<CR>
+nmap <leader>wq :wq<CR>
 inoremap lkj <ESC>:w<CR>
 
 set lazyredraw
@@ -151,7 +155,7 @@ endif
 " coc configuration
 """"""""""""""""""""""""
 
-let g:coc_global_extensions = [ 'coc-tsserver', 'coc-eslint', 'coc-go' ]
+let g:coc_global_extensions = [ 'coc-tsserver', 'coc-eslint', 'coc-go', 'coc-prettier' ]
 
 " Improve menu color
 highlight Pmenu ctermbg=black
@@ -170,6 +174,13 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
@@ -177,7 +188,7 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
@@ -194,6 +205,9 @@ function! s:show_documentation()
   endif
 endfunction
 
+xmap <leader>a <Plug>(coc-codeaction-selected)
+nmap <leader>a <Plug>(coc-codeaction-selected)
+
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 set updatetime=100
@@ -202,10 +216,13 @@ set updatetime=100
 nmap <leader>r <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>f :CocCommand eslint.executeAutofix<cr>
-nmap <leader>f :CocCommand eslint.executeAutofix<cr>
+xmap <leader>f <Plug>(coc-format-selected)
+nmap <leader>f <Plug>(coc-format-selected)
 
 autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+autocmd BufWritePre *.go,*.ts,*.js :silent call CocAction('format')
+
+nnoremap <leader>l :CocRestart<cr><cr>
 
 """"""""""""""""""""""""
 " end coc configuration
