@@ -27,6 +27,7 @@ alias cml="vim CMakeLists.txt"
 # git aliases
 alias gst="git status -sb"
 alias ga="git add"
+alias gap="git add --patch"
 alias gcm="git commit"
 alias gam="gcm --amend --no-edit"
 alias gpl="git pull"

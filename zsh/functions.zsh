@@ -1,3 +1,14 @@
+function cdp() {
+  cd "$HOME/projects/$1"
+}
+
+function _cdp() {
+  ((CURRENT == 2)) &&
+  _files -/ -W "$HOME/projects"
+}
+
+compdef _cdp cdp
+
 chpwd() {
     count=$(ls | wc -l);
     if [ $count -lt 100 ]
@@ -9,8 +20,10 @@ chpwd() {
 txdev() {
     local DIR=`pwd`
 
+    local SESSION_NAME=$(echo "`basename $PWD`" | sed -r 's/\./\-/g')
+
     tmux start-server
-    tmux new-session -d -s $1
+    tmux new-session -d -s $SESSION_NAME
     tmux split-window -h -c $DIR
     tmux rename-window 'edit'
     tmux new-window -c $DIR
@@ -20,7 +33,7 @@ txdev() {
     tmux split-window -h -c $DIR
     tmux rename-window 'git'
     tmux select-window -t 'git'
-    tmux attach-session -t $1
+    tmux attach-session -t $SESSION_NAME
 }
 
 buffer() {
@@ -60,6 +73,12 @@ startup() {
 
 dbash() {
     docker exec -it $1 bash
+}
+
+kselect() {
+    env=$(k config current-context | sed -nE 's/.*((dev|staging|prod)(-cde)?).*/\1/p')
+    namespace=$(k ns | grep $1 | head -n 1)
+    k ns $namespace
 }
 
 kexec() {
