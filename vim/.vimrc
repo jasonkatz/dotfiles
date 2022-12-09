@@ -145,7 +145,7 @@ function HeaderCodeSkeleton()
     call append(line(".") + 8, "#endif")
 endfunction
 
-if &term =~ '256color'
+if &term =~ 'xterm-256color'
     " disable Background Color Erase (BCE) so that color schemes
     " render properly when inside 256-color tmux and GNU screen
     " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
