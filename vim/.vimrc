@@ -56,6 +56,7 @@ let mapleader = ","
 nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
 nmap <leader>wq :wq<CR>
+nmap <leader>cq :cq<CR>
 inoremap lkj <ESC>:w<CR>
 
 set lazyredraw
