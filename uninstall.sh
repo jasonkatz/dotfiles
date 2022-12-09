@@ -19,7 +19,6 @@ uninstall_configs powerlevel10k
 uninstall_configs tmux
 uninstall_configs unix
 uninstall_configs vim
-uninstall_configs X11
 uninstall_configs zsh
 
 printf "✅ Successfully removed dotfiles package.\n"

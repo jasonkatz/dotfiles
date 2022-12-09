@@ -21,7 +21,6 @@ install_configs powerlevel10k
 install_configs tmux
 install_configs unix
 install_configs vim
-install_configs X11
 install_configs zsh
 
 printf "✅ Successfully installed dotfiles package\n"

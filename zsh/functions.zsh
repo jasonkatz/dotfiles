@@ -53,10 +53,6 @@ pr-edit() {
     rm -f .gh-tmp-body.md
 }
 
-buffer() {
-    cat $1 > ~/public_html/text
-}
-
 reinstall() {
     bash ~/dotfiles/uninstall.sh
     printf "\n---------------------------\n\n"
