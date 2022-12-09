@@ -52,6 +52,7 @@ alias txl="tmux ls"
 alias txn="tmux new -s"
 alias txa="tmux attach -t"
 alias txk="tmux kill-session -t"
+alias txurl="tmux capture-pane -J -p | grep -oE '(https?):\/\/.*[^>]' | fzf-tmux -d20 --multi --bind alt-a:select-all,alt-d:deselect-all | xargs open"
 
 # xterm alias
 alias new="xterm &"
