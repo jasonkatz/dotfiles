@@ -36,6 +36,23 @@ txdev() {
     tmux attach-session -t $SESSION_NAME
 }
 
+pr-edit() {
+    if ! gh pr view --json body -q .body | sed 's/\r//' > .gh-tmp-body.md ; then
+        rm -f .gh-tmp-body.md
+        return
+    fi
+
+    if ! $EDITOR .gh-tmp-body.md ; then
+        rm -f .gh-tmp-body.md
+        return
+    fi
+
+    gh pr edit -b "$(cat .gh-tmp-body.md)"
+    gh pr view
+
+    rm -f .gh-tmp-body.md
+}
+
 buffer() {
     cat $1 > ~/public_html/text
 }
