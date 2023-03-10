@@ -50,10 +50,6 @@ lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr }
 
     vim.keymap.set('n', '<leader>r', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-    vim.keymap.set('n', '<leader>f', function()
-        prettier.format()
-        vim.lsp.buf.format({ async = true })
-    end, opts)
     vim.keymap.set('n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
     vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
     vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
@@ -62,17 +58,33 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set('n', 'g]', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
     vim.keymap.set('n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
 
+    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+
     if client.supports_method("textDocument/formatting") then
-        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+        vim.keymap.set('n', '<leader>f', function()
+            vim.lsp.buf.format({ async = true })
+        end, opts)
+
         vim.api.nvim_create_autocmd("BufWritePre", {
             group = augroup,
             buffer = bufnr,
             callback = function()
-                prettier.format()
                 vim.lsp.buf.format({ async = false })
             end
         })
     end
+
+    vim.keymap.set('n', '<leader>f', function()
+        prettier.format()
+    end, opts)
+
+    vim.api.nvim_create_autocmd("BufWritePre", {
+        group = augroup,
+        buffer = bufnr,
+        callback = function()
+            prettier.format()
+        end
+    })
 end)
 
 lsp.setup()
