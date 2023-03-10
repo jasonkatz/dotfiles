@@ -25,7 +25,7 @@ vim.keymap.set("n", "J", "<C-d>zz")
 vim.keymap.set("n", "K", "<C-u>zz")
 vim.keymap.set("n", "B", "zb")
 vim.keymap.set("n", "T", "zt")
-vim.keymap.set("n", "m", "%")
+vim.keymap.set({ "n", "v" }, "m", "%", { remap = true })
 
 -- Search & replace
 vim.keymap.set("n", "<leader>/", "<cmd>nohlsearch<cr>")
