@@ -13,6 +13,9 @@
 # then uncomment the following line to make Meta + arrow keys mapping work
 #set -ga terminal-overrides "*:kUP3=\e[1;9A,*:kDN3=\e[1;9B,*:kRIT3=\e[1;9C,*:kLFT3=\e[1;9D"
 
+set -g default-terminal 'xterm-256color'
+set -as terminal-overrides ',xterm*:Tc:sitm=\E[3m'
+
 theme_color_fg='#c5c8c6'
 theme_color_bg='#4a4d54'
 theme_color_black_normal='#282828'
