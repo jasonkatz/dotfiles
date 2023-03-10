@@ -44,11 +44,16 @@ lsp.setup_nvim_cmp({
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
+local prettier = require('prettier')
+
 lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr }
 
     vim.keymap.set('n', '<leader>r', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-    vim.keymap.set('n', '<leader>f', '<cmd>lua vim.lsp.buf.format({ async = true })<cr>', opts)
+    vim.keymap.set('n', '<leader>f', function()
+        prettier.format()
+        vim.lsp.buf.format({ async = true })
+    end, opts)
     vim.keymap.set('n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
     vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
     vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
@@ -63,7 +68,8 @@ lsp.on_attach(function(client, bufnr)
             group = augroup,
             buffer = bufnr,
             callback = function()
-                vim.lsp.buf.format()
+                prettier.format()
+                vim.lsp.buf.format({ async = false })
             end
         })
     end
