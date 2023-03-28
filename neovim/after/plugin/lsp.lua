@@ -8,8 +8,7 @@ lsp.ensure_installed({
     'lua_ls',
     'cssls',
     'jsonls',
-    'yamlls',
-    'gopls'
+    'yamlls'
 })
 
 local luasnip = require('luasnip')
@@ -17,9 +16,9 @@ local cmp = require('cmp')
 
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
-        ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
-        ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
-        ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
+    ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
+    ['<C-Space>'] = cmp.mapping.complete(),
 })
 
 cmp_mappings['<Tab>'] = cmp.mapping(function()
