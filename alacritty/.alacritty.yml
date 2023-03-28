@@ -865,11 +865,11 @@ key_bindings:
   - { key: Period,         mods: Command|Shift,              chars: "\x1b\x3e"        }
   - { key: Back,           mods: Command,                    chars: "\x1b\x15"        }
   - { key: Back,           mods: Alt,                        chars: "\x1b\x17"        }
-  - { key: Left,           mods: Command, mode: AppCursor,   chars: "\x1bOH"          }
-  - { key: Left,           mods: Command,                    chars: "\x1bOH"          }
+  - { key: Left,           mods: Command, mode: AppCursor,   chars: "\x1b\x01"          }
+  - { key: Left,           mods: Command,                    chars: "\x1b\x01"          }
   - { key: Left,           mods: Alt,                        chars: "\x1b\x62"        }
-  - { key: Right,          mods: Command, mode: AppCursor,   chars: "\x1bOF"          }
-  - { key: Right,          mods: Command,                    chars: "\x1bOF"          }
+  - { key: Right,          mods: Command, mode: AppCursor,   chars: "\x1b\x05"          }
+  - { key: Right,          mods: Command,                    chars: "\x1b\x05"          }
   - { key: Right,          mods: Alt,                        chars: "\x1b\x66"        }
   - { key: Return,         mods: Command,                    action: ToggleFullscreen }
 
