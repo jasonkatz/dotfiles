@@ -9,4 +9,3 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = { "javascript", "javascriptreact", "typescript", "typescriptreact", "css", "graphql" },
     command = "setlocal shiftwidth=2 tabstop=2"
 })
-
