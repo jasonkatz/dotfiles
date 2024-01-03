@@ -10,3 +10,5 @@ coverage
 .idea
 .vscode
 yarn-error.log
+
+charts

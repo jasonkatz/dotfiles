@@ -21,11 +21,12 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<C-Space>'] = cmp.mapping.complete(),
 })
 
-cmp_mappings['<Tab>'] = cmp.mapping(function()
+cmp_mappings['<Tab>'] = cmp.mapping(function(fallback)
     if (luasnip.jumpable(1)) then
         luasnip.jump(1)
         return
     end
+    fallback()
     return nil
 end, { 'i', 's' })
 

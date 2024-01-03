@@ -79,6 +79,10 @@ alias mrestart="sudo service mongodb restart"
 # Python aliases
 alias venv="source venv/bin/activate"
 
+# Docker aliases
+alias dk="docker"
+alias dkc="docker-compose"
+
 # kubernetes aliases
 alias k="kubectl"
 alias tp="telepresence"

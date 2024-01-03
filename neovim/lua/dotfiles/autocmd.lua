@@ -6,7 +6,15 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "javascript", "javascriptreact", "typescript", "typescriptreact", "css", "graphql" },
+    pattern = {
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "css",
+        "graphql",
+        "terraform"
+    },
     command = "setlocal shiftwidth=2 tabstop=2"
 })
 
