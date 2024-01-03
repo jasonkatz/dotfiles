@@ -62,7 +62,7 @@ lsp.on_attach(function(client, bufnr)
 
     if client.supports_method("textDocument/formatting") then
         vim.keymap.set('n', '<leader>f', function()
-            vim.lsp.buf.format({ async = true })
+            vim.lsp.buf.format({ async = false })
         end, opts)
 
         vim.api.nvim_create_autocmd("BufWritePre", {
@@ -73,18 +73,6 @@ lsp.on_attach(function(client, bufnr)
             end
         })
     end
-
-    vim.keymap.set('n', '<leader>f', function()
-        prettier.format()
-    end, opts)
-
-    vim.api.nvim_create_autocmd("BufWritePre", {
-        group = augroup,
-        buffer = bufnr,
-        callback = function()
-            prettier.format()
-        end
-    })
 end)
 
 lsp.setup()
