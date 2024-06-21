@@ -10,5 +10,11 @@ coverage
 .idea
 .vscode
 yarn-error.log
+*.tsbuildinfo
 
 charts
+
+.terraform
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.backup
