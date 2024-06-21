@@ -54,4 +54,6 @@ return require('packer').startup(function(use)
             { 'MunifTanjim/prettier.nvim' },
         }
     }
+
+    use 'github/copilot'
 end)
