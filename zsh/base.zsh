@@ -1,7 +1,5 @@
 setopt auto_cd
 setopt no_case_glob
-setopt correct
-setopt correct_all
 
 HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
 
