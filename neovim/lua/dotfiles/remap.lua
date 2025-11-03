@@ -45,3 +45,8 @@ vim.keymap.set("n", "gp", "<cmd>bprev<cr>")
 vim.keymap.set("n", "<C-j>", "<cmd>cnext<cr>zz")
 vim.keymap.set("n", "<C-k>", "<cmd>cprev<cr>zz")
 vim.keymap.set("n", "<esc>", "<cmd>ccl<cr>")
+
+-- Diagnostics
+vim.keymap.set('n', '\'', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
+vim.keymap.set('n', 'g]', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
+vim.keymap.set('n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)

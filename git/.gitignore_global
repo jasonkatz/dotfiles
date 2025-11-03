@@ -1,6 +1,8 @@
 *.swp
 *.swo
 
+*.log
+
 env
 .env
 
@@ -18,3 +20,7 @@ charts
 .terraform.lock.hcl
 *.tfstate
 *.tfstate.backup
+
+*.code-workspace
+
+.claude
