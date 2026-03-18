@@ -14,7 +14,6 @@ uninstall_configs alacritty
 uninstall_configs git
 uninstall_configs iterm
 uninstall_configs neovim
-uninstall_configs powerlevel10k
 uninstall_configs tmux
 uninstall_configs unix
 uninstall_configs zsh

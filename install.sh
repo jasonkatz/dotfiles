@@ -16,7 +16,6 @@ install_configs alacritty
 install_configs git
 install_configs iterm
 install_configs neovim
-install_configs powerlevel10k
 install_configs tmux
 install_configs unix
 install_configs zsh
