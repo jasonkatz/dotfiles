@@ -32,8 +32,11 @@ modify_zshrc() {
     local ZSHRC_CONTENTS=$(cat $ZSHRC)
     if [[ ! $ZSHRC_CONTENTS =~ $START_TAG ]] && [[ ! $ZSHRC_CONTENTS =~ $END_TAG ]]; then
         printf "# $START_TAG\n" >> $ZSHRC
-        printf ". $LOAD_SCRIPT_PATH\nload\n" >> $ZSHRC
-        printf "startup\n" >> $ZSHRC
+        printf "if [[ -z \"\$__DOTFILES_LOADED\" ]]; then\n" >> $ZSHRC
+        printf "    . $LOAD_SCRIPT_PATH\n    load\n" >> $ZSHRC
+        printf "    startup\n" >> $ZSHRC
+        printf "    export __DOTFILES_LOADED=1\n" >> $ZSHRC
+        printf "fi\n" >> $ZSHRC
         printf "# $END_TAG\n" >> $ZSHRC
 
         printf "🏠 Added dotfiles setup to $ZSHRC\n"

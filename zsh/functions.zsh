@@ -49,16 +49,15 @@ reinstall() {
 }
 
 start_agent() {
-    printf "\nInitializing new SSH agent..."
     SSH_ENV="$HOME/.ssh/environment"
     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-    echo succeeded
     chmod 600 "${SSH_ENV}"
     . "${SSH_ENV}" > /dev/null
-    /usr/bin/ssh-add
+    /usr/bin/ssh-add 2>/dev/null
 }
 
 startup() {
+    SSH_ENV="$HOME/.ssh/environment"
     if [ -f "${SSH_ENV}" ]; then
         . "${SSH_ENV}" > /dev/null
         ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
@@ -68,7 +67,7 @@ startup() {
         start_agent;
     fi
 
-    stty -ixon
+    stty -ixon 2>/dev/null
 }
 
 dbash() {
