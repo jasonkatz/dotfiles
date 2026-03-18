@@ -18,6 +18,7 @@ install_configs iterm
 install_configs neovim
 install_configs tmux
 install_configs unix
+install_configs starship
 install_configs zsh
 
 printf "✅ Successfully installed dotfiles package\n"

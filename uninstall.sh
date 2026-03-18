@@ -16,6 +16,7 @@ uninstall_configs iterm
 uninstall_configs neovim
 uninstall_configs tmux
 uninstall_configs unix
+uninstall_configs starship
 uninstall_configs zsh
 
 printf "✅ Successfully removed dotfiles package.\n"
