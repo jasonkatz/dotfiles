@@ -343,9 +343,9 @@ set -s escape-time 0
 # Reload pane with Alt-r without prefix
 bind -n M-r respawn-pane -k
 
-# Split panes using Alt-[ and Alt-] without prefix
-bind -n M-[ split-window -v
-bind -n M-] split-window -h
+# Split panes using Cmd-[ and Cmd-] (sent as Alt-{ and Alt-} from Ghostty)
+bind -n M-{ split-window -v
+bind -n M-} split-window -h
 
 # Switch panes using Alt-hjkl without prefix
 bind -n M-h select-pane -L
@@ -399,3 +399,7 @@ set -g mouse on
 
 # Don't rename windows automatically
 set-option -g allow-rename off
+
+# Extended key sequences (enables Shift+Enter passthrough from Ghostty)
+set -g extended-keys on
+set -as terminal-features 'xterm*:extkeys'

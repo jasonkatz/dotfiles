@@ -4,7 +4,6 @@
 *.log
 
 env
-.env
 
 node_modules
 dist
@@ -24,3 +23,11 @@ charts
 *.code-workspace
 
 .claude
+
+venv
+
+.windsurf
+
+# Beads
+.beads
+.bv
